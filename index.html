@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRAVE PRODUCT</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f1f1f1;
+padding:15px;
+}
+
+/* MAIN */
+
+.container{
+max-width:1200px;
+margin:auto;
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 25px rgba(0,0,0,0.1);
+}
+
+/* GRID */
+
+.product-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+/* LEFT SIDE */
+
+.slider{
+position:relative;
+overflow:hidden;
+background:#fafafa;
+padding-top:110px;
+}
+
+/* LOGO */
+
+.logo-box{
+position:absolute;
+top:0;
+left:0;
+z-index:100;
+}
+
+.logo-box img{
+width:200px;
+height:110px;
+object-fit:contain;
+display:block;
+}
+
+/* SLIDES */
+
+.slides{
+display:flex;
+transition:0.5s ease-in-out;
+}
+
+.slide{
+min-width:100%;
+}
+
+.slide img{
+width:100%;
+height:100%;
+max-height:900px;
+object-fit:cover;
+display:block;
+}
+
+/* DOTS */
+
+.dots{
+position:absolute;
+bottom:15px;
+width:100%;
+display:flex;
+justify-content:center;
+gap:8px;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#ccc;
+transition:0.3s;
+}
+
+.dot.active{
+width:28px;
+border-radius:20px;
+background:#111;
+}
+
+/* THUMBNAILS */
+
+.thumbnail-slider{
+display:flex;
+justify-content:center;
+gap:10px;
+padding:12px;
+background:#fff;
+flex-wrap:wrap;
+}
+
+.thumb{
+width:75px;
+height:95px;
+border-radius:10px;
+overflow:hidden;
+cursor:pointer;
+border:2px solid transparent;
+transition:0.3s;
+}
+
+.thumb img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.thumb.active{
+border:2px solid black;
+transform:scale(1.05);
+}
+
+/* RIGHT CONTENT */
+
+.content{
+padding:28px;
+}
+
+.brand{
+color:#777;
+font-size:14px;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+.title{
+font-size:34px;
+font-weight:bold;
+line-height:1.3;
+margin-bottom:15px;
+}
+
+.rating{
+color:#ff9900;
+margin-bottom:20px;
+font-size:18px;
+}
+
+/* PRICE */
+
+.price-box{
+margin-bottom:22px;
+}
+
+.old-price{
+color:#777;
+text-decoration:line-through;
+font-size:22px;
+margin-right:10px;
+}
+
+.new-price{
+color:#B12704;
+font-size:42px;
+font-weight:bold;
+}
+
+.offer{
+background:red;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+font-size:14px;
+margin-left:10px;
+font-weight:bold;
+}
+
+/* DESCRIPTION */
+
+.description{
+color:#555;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+/* COLORS */
+
+.colors{
+display:flex;
+gap:12px;
+margin:15px 0 28px;
+}
+
+.color{
+width:42px;
+height:42px;
+border-radius:50%;
+border:3px solid #ddd;
+cursor:pointer;
+transition:0.3s;
+}
+
+.color:hover{
+transform:scale(1.1);
+}
+
+.active-color{
+border:3px solid black;
+}
+
+.green{
+background:#c8ff8f;
+}
+
+.cream{
+background:#ead8c8;
+}
+
+.black{
+background:#111;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+margin-bottom:30px;
+}
+
+.feature{
+background:#fafafa;
+padding:15px;
+border-radius:14px;
+border:1px solid #eee;
+}
+
+/* FORM */
+
+.form-box{
+background:#fafafa;
+padding:25px;
+border-radius:20px;
+border:1px solid #eee;
+}
+
+.form-title{
+font-size:28px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:1px solid #ccc;
+font-size:16px;
+outline:none;
+}
+
+textarea{
+resize:none;
+}
+
+button{
+width:100%;
+background:#111;
+color:white;
+border:none;
+padding:16px;
+border-radius:14px;
+font-size:19px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+button:hover{
+background:#333;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.product-section{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:28px;
+}
+
+.new-price{
+font-size:34px;
+}
+
+}
+
+@media(max-width:600px){
+
+.content{
+padding:18px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.slide img{
+max-height:600px;
+}
+
+.thumb{
+width:60px;
+height:80px;
+}
+
+.logo-box img{
+width:150px;
+height:80px;
+}
+
+.slider{
+padding-top:80px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="product-section">
+
+<!-- LEFT SIDE -->
+
+<div class="slider">
+
+<div class="logo-box">
+<img src="./logo.png" alt="Logo">
+</div>
+
+<div class="slides" id="slides">
+
+<div class="slide">
+<img src="./img1.png">
+</div>
+
+<div class="slide">
+<img src="./img2.png">
+</div>
+
+<div class="slide">
+<img src="./img3.png">
+</div>
+
+</div>
+
+<div class="dots">
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
+<div class="thumbnail-slider">
+
+<div class="thumb active" onclick="goToSlide(0)">
+<img src="./img1.png">
+</div>
+
+<div class="thumb" onclick="goToSlide(1)">
+<img src="./img2.png">
+</div>
+
+<div class="thumb" onclick="goToSlide(2)">
+<img src="./img3.png">
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="content">
+
+<div class="brand">
+BRAVE STREETWEAR
+</div>
+
+<div class="title">
+BRAVE Premium Polo T-Shirt Combo With Black Denim
+</div>
+
+<div class="rating">
+★★★★★ 4.8 Rating | 2,548 Reviews
+</div>
+
+<div class="price-box">
+
+<span class="old-price">₹1499</span>
+
+<span class="new-price">₹650</span>
+
+<span class="offer">53% OFF</span>
+
+</div>
+
+<div class="description">
+Premium oversized BRAVE polo t-shirt combo with stylish black denim jeans.
+Soft breathable fabric with trendy streetwear design.
+Perfect for casual wear, outings, college and fashion looks.
+</div>
+
+<h3>Available Colours</h3>
+
+<div class="colors">
+
+<div class="color green active-color" onclick="changeSlide(0)"></div>
+
+<div class="color cream" onclick="changeSlide(1)"></div>
+
+<div class="color black" onclick="changeSlide(2)"></div>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔ Premium Quality Fabric
+</div>
+
+<div class="feature">
+✔ Stylish Oversized Fit
+</div>
+
+<div class="feature">
+✔ Comfortable For Daily Wear
+</div>
+
+<div class="feature">
+✔ Fast Delivery Available
+</div>
+
+</div>
+
+<!-- FORM -->
+
+<div class="form-box">
+
+<div class="form-title">
+Order Details
+</div>
+
+<form id="orderForm">
+
+<div class="form-group">
+<input type="text" id="name" placeholder="Full Name" required>
+</div>
+
+<div class="form-group">
+<input type="tel" id="phone" placeholder="Phone Number" required>
+</div>
+
+<div class="form-group">
+<select id="tshirt" required>
+<option value="">Select T-Shirt Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+</div>
+
+<div class="form-group">
+<select id="pant" required>
+<option value="">Select Pant Size</option>
+<option>28</option>
+<option>30</option>
+<option>32</option>
+<option>34</option>
+<option>36</option>
+<option>38</option>
+</select>
+</div>
+
+<div class="form-group">
+<input type="number" id="pincode" placeholder="Pincode" required>
+</div>
+
+<div class="form-group">
+<input type="text" id="city" placeholder="City" required>
+</div>
+
+<div class="form-group">
+<textarea rows="4" id="address" placeholder="Full Address" required></textarea>
+</div>
+
+<button type="submit">
+Place Order
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* SLIDER */
+
+let slide = 0;
+
+const slides = document.getElementById("slides");
+const dots = document.querySelectorAll(".dot");
+const thumbs = document.querySelectorAll(".thumb");
+const colors = document.querySelectorAll(".color");
+
+function updateSlider(){
+
+slides.style.transform =
+`translateX(-${slide * 100}%)`;
+
+dots.forEach(dot=>{
+dot.classList.remove("active");
+});
+
+thumbs.forEach(thumb=>{
+thumb.classList.remove("active");
+});
+
+colors.forEach(color=>{
+color.classList.remove("active-color");
+});
+
+dots[slide].classList.add("active");
+thumbs[slide].classList.add("active");
+colors[slide].classList.add("active-color");
+
+}
+
+function nextSlide(){
+
+slide++;
+
+if(slide > 2){
+slide = 0;
+}
+
+updateSlider();
+
+}
+
+function goToSlide(index){
+
+slide = index;
+
+updateSlider();
+
+}
+
+function changeSlide(index){
+
+slide = index;
+
+updateSlider();
+
+}
+
+setInterval(nextSlide,3000);
+
+
+/* GOOGLE SHEET FORM SUBMIT */
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbzGa9oSGfMkXpqmIXl-zvzm6tccTWveq5t3GCJ00UAaxnOIeIXFuHIZA_ZScGgMge95Zw/exec";
+
+const form = document.getElementById("orderForm");
+
+form.addEventListener("submit", async (e) => {
+
+e.preventDefault();
+
+const data = {
+
+name: document.getElementById("name").value,
+phone: document.getElementById("phone").value,
+tshirt: document.getElementById("tshirt").value,
+pant: document.getElementById("pant").value,
+pincode: document.getElementById("pincode").value,
+city: document.getElementById("city").value,
+address: document.getElementById("address").value
+
+};
+
+try {
+
+const response = await fetch(scriptURL, {
+
+method: "POST",
+
+body: JSON.stringify(data)
+
+});
+
+const result = await response.text();
+
+console.log(result);
+
+document.body.innerHTML = `
+
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f4f4f4;
+font-family:Arial,sans-serif;
+padding:20px;
+">
+
+<div style="
+background:white;
+padding:50px 35px;
+border-radius:25px;
+text-align:center;
+max-width:500px;
+width:100%;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
+">
+
+<div style="
+font-size:80px;
+margin-bottom:20px;
+">
+✅
+</div>
+
+<h1 style="
+font-size:42px;
+color:#111;
+margin-bottom:15px;
+">
+Your Order Is Confirmed
+</h1>
+
+<p style="
+font-size:18px;
+color:#666;
+line-height:1.7;
+margin-bottom:25px;
+">
+Thank you for shopping with BRAVE.<br>
+Your order has been placed successfully.
+</p>
+
+<div style="
+background:#f7f7f7;
+padding:18px;
+border-radius:15px;
+font-size:16px;
+color:#333;
+margin-bottom:20px;
+">
+Delivery Expected Within 3-5 Days 🚚
+</div>
+
+<button onclick="location.reload()" style="
+background:#111;
+color:white;
+border:none;
+padding:16px 30px;
+border-radius:14px;
+font-size:18px;
+cursor:pointer;
+">
+Continue Shopping
+</button>
+
+</div>
+
+</div>
+
+`;
+
+form.reset();
+
+} catch (error) {
+
+alert("Error Submitting Order!");
+console.log(error);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
